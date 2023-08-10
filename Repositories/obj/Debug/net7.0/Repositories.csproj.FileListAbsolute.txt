@@ -1,0 +1,15 @@
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/bin/Debug/net7.0/Repositories.deps.json
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/bin/Debug/net7.0/Repositories.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/bin/Debug/net7.0/Repositories.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/bin/Debug/net7.0/Entities.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/bin/Debug/net7.0/Entities.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.csproj.AssemblyReference.cache
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.AssemblyInfoInputs.cache
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.AssemblyInfo.cs
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.csproj.CoreCompileInputs.cache
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.csproj.CopyComplete
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/refint/Repositories.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/Repositories.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Repositories/obj/Debug/net7.0/ref/Repositories.dll
