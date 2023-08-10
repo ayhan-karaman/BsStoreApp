@@ -2,22 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.Mvc;
 using Entities.Models;
-using Repositories.EfCore;
+using Microsoft.AspNetCore.Mvc;
+using Services.Contracts;
+using Microsoft.AspNetCore.JsonPatch;
 
-namespace WebApiUI.Controllers
+namespace Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class BooksController : ControllerBase
     {
-        private readonly RepositoryContext _repositoryContext;
+        private readonly IServiceManager _serviceManager;
 
-        public BooksController(RepositoryContext repositoryContext)
+        public BooksController(IServiceManager serviceManager)
         {
-            _repositoryContext = repositoryContext;
+            _serviceManager = serviceManager;
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@ namespace WebApiUI.Controllers
         {
             try
             {
-                var books = _repositoryContext.Books.ToList();
+                var books = _serviceManager.BookService.GetAllBooks(false);
                 return Ok(books);
             }
             catch (Exception ex)
@@ -39,7 +39,7 @@ namespace WebApiUI.Controllers
         {
             try
             {
-                 var book = _repositoryContext.Books.Where(book => book.Id == id).SingleOrDefault();
+                 var book = _serviceManager.BookService.GetOneBookById(id, false);
                  if(book is null)
                     return NotFound(); //404
                  return Ok(book);
@@ -58,8 +58,7 @@ namespace WebApiUI.Controllers
             {
                 if(book is null)
                     return BadRequest();
-                _repositoryContext.Books.Add(book);
-                _repositoryContext.SaveChanges();
+                _serviceManager.BookService.CreateOneBook(book);
                 return StatusCode(201, book);
             }
             catch (Exception ex)
@@ -75,18 +74,10 @@ namespace WebApiUI.Controllers
             //check book? 
             try
             {
-                var entity = _repositoryContext.Books.Where(b => b.Id.Equals(id)).SingleOrDefault();
-                if(entity is null)
-                     return NotFound();
-                // check id
-                if(id != book.Id)
-                    return BadRequest(); // 404
-
-                entity.Title = book.Title;
-                entity.Price = book.Price;
-
-                _repositoryContext.SaveChanges();
-                return Ok(entity);
+                if(book is null)
+                    return BadRequest();
+                _serviceManager.BookService.UpdateOneBook(id, book, true);
+                return NoContent();
             }
             catch (Exception ex)
             {
@@ -102,14 +93,9 @@ namespace WebApiUI.Controllers
         {
             try
             {
-                var entity = _repositoryContext.Books.Where(b => b.Id.Equals(id)).SingleOrDefault();
-                if(entity is null)
-                    return NotFound(new {
-                         statusCode = 404,
-                         message = $"Book with id:{id} could not found"
-                    }); // 404 
-                _repositoryContext.Books.Remove(entity);
-                _repositoryContext.SaveChanges();
+            
+                _serviceManager.BookService.DeleteOneBook(id, false);
+               
                 return NoContent(); // 204 
             }
             catch (Exception ex)
@@ -125,11 +111,13 @@ namespace WebApiUI.Controllers
              try
              {
                 // check entity
-                var entity = _repositoryContext.Books.Where(b => b.Id.Equals(id)).SingleOrDefault();
+                var entity = _serviceManager.BookService.GetOneBookById(id, true);
                 if(entity is null)
                    return NotFound(); // 404
-                  bookPatch.ApplyTo(entity);
-                _repositoryContext.SaveChanges();
+
+                bookPatch.ApplyTo(entity);
+                _serviceManager.BookService.UpdateOneBook(id, entity, true);
+               
                 return NoContent(); // 204 No Content
              }
              catch (Exception ex)
@@ -139,4 +127,5 @@ namespace WebApiUI.Controllers
             }
         }
     }
+
 }

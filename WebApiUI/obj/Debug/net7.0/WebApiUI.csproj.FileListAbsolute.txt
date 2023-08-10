@@ -47,3 +47,9 @@
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Entities.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Entities.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Repositories.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Repositories.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Services.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Services.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Presentation.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Presentation.pdb
