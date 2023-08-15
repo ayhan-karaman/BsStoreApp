@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8SkIEPjRIG/buumM8T1+MTXNgOQ0sqy8FzlRcypmTWsryrR+jFtHbzlU9brLfakyI1WnNc+kNOyW93/etHNC6Q==",
+  "dgSpecHash": "O8oLFjq8EGW/kcqTx/iyD8bDlCB8K87bdXBWQ4BkSdV6/R6vK+0G6mQFqLgbs5erBNwn/HNYJZO5f/7SiA5Vbw==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Services/Services.csproj",
   "expectedPackageFiles": [
@@ -9,12 +9,15 @@
     "/Users/ayhankaraman/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.0/microsoft.entityframeworkcore.analyzers.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.configuration.abstractions/6.0.0/microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.logging/7.0.0/microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.0/microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
-    "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+    "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/nlog/5.2.3/nlog.5.2.3.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/nlog.extensions.logging/5.3.3/nlog.extensions.logging.5.3.3.nupkg.sha512"
   ],
   "logs": []
 }

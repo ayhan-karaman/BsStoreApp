@@ -11,10 +11,12 @@ namespace Services.Concretes
     public class BookManager : IBookService
     {
         private readonly IRepositoryManager _repositoryManager;
+        private readonly ILoggerService _loggerService;
 
-        public BookManager(IRepositoryManager repositoryManager)
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService)
         {
             _repositoryManager = repositoryManager;
+            _loggerService = loggerService;
         }
 
         public Book CreateOneBook(Book book)
@@ -28,7 +30,11 @@ namespace Services.Concretes
         {
             var entity = _repositoryManager.Book.GetOneBook(id, tracking);
             if(entity is  null)
-               throw new Exception($"Book with id:{id} could not found");
+            {
+                 string message = $"The book with id:{id} could not found";
+                 _loggerService.LogInfo(message);
+                 throw new Exception(message);
+            }
 
             _repositoryManager.Book.DeleteOneBook(entity);
             _repositoryManager.Save();
@@ -48,7 +54,11 @@ namespace Services.Concretes
         {
             var entity = _repositoryManager.Book.GetOneBook(id, tracking);
             if(entity is  null)
-               throw new Exception($"Book with id:{id} could not found");
+            {
+                 string message = $"The book with id:{id} could not found";
+                 _loggerService.LogInfo(message);
+                 throw new Exception(message);
+            }
             // check params
             if(book is null)
               throw new ArgumentNullException(nameof(book));

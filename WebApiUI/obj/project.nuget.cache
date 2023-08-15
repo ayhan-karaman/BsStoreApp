@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eRMOSccZ8iut+3wE8C7+oLcBWUbJCcFh/S4Hn/JNeRptFcuTKuvfqDX6wn3gjuz5TMJPM4cWRR4Rf+hMlaAOKw==",
+  "dgSpecHash": "VZOIX8yt0pniYvQej3n9AFde3Zh7VkV3MfKmvDXLsJPxB4tkph5a0hIrEJJT4MbyPmBbFyu6MI5vkl7E8LoN8Q==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/WebApiUI.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,8 @@
     "/Users/ayhankaraman/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/nlog/5.2.3/nlog.5.2.3.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/nlog.extensions.logging/5.3.3/nlog.extensions.logging.5.3.3.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/npgsql/7.0.0/npgsql.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.0/npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",

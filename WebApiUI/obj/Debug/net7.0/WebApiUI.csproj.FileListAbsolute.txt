@@ -53,3 +53,6 @@
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Services.pdb
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Presentation.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Presentation.pdb
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/nlog.config
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/NLog.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/NLog.Extensions.Logging.dll
