@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VZOIX8yt0pniYvQej3n9AFde3Zh7VkV3MfKmvDXLsJPxB4tkph5a0hIrEJJT4MbyPmBbFyu6MI5vkl7E8LoN8Q==",
+  "dgSpecHash": "agXSUg4pznvLU86lInIHjSvpuPhF7XCwOmWcys2JOeDcujr93F2B+iey6Zdhfx7BoFgTcSN08yyEVBjcMWMEXQ==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/WebApiUI.csproj",
   "expectedPackageFiles": [
+    "/Users/ayhankaraman/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authentication.core/2.2.0/microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

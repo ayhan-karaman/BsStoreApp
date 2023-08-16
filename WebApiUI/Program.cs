@@ -1,7 +1,7 @@
 using NLog;
 using WebApiUI.Extensions;
-using NLog;
 using Services.Contracts;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +19,7 @@ builder.Services.ConfigureSQLContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureLoggerService();
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 var app = builder.Build();

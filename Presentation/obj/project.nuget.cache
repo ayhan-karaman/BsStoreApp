@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "F84vJ6vhRIP+QzvQYC1ckHldCbSgfJiBd7Dc8LAzEuu8AtaRmeqU8kBwqjb1jUgKNJqiKAfC2G7otu6xoXMPWw==",
+  "dgSpecHash": "Sky560Qkpv3D2hgmBjTXN5HX2JY5yztliH7IR4oLGXB8GSYh4bJ7iHZ0tYEubqzrobb2GwWcFL5nZQX7nqcc1w==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Presentation/Presentation.csproj",
   "expectedPackageFiles": [
+    "/Users/ayhankaraman/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authentication.core/2.2.0/microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authorization/2.2.0/microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.Models;
 using Repositories.Contracts;
@@ -13,11 +15,13 @@ namespace Services.Concretes
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerService _loggerService;
+        private readonly IMapper _mapper;
 
-        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService)
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
             _loggerService = loggerService;
+            _mapper = mapper;
         }
 
         public Book CreateOneBook(Book book)
@@ -50,15 +54,14 @@ namespace Services.Concretes
              return book;
         }
 
-        public void UpdateOneBook(int id, Book book, bool tracking)
+        public void UpdateOneBook(int id, BookForUpdateDto bookForUpdateDto, bool tracking)
         {
             var entity = _repositoryManager.Book.GetOneBook(id, tracking);
             if(entity is  null)
                 throw new BookNotFoundException(id);
             
-            // check params
-            entity.Title = book.Title;
-            entity.Price = book.Price;
+            // Mapping
+            entity = _mapper.Map<Book>(bookForUpdateDto);
 
             _repositoryManager.Book.Update(entity);
             _repositoryManager.Save();
