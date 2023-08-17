@@ -8,7 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 // Add services to the container.
 
-builder.Services.AddControllers()
+builder.Services.AddControllers(config => {
+     // İçerik pazarlığı client'in bizden istemiş olduğu dosya formatının dönüşü hakkında cevap vermek konusunda ki 
+    // olumlu yada olumsuz durumu değerlendirdiğimiz alan config.RespectBrowserAcceptHeader
+     config.RespectBrowserAcceptHeader = true;
+     // Client'in bizden istemiş olduğu içerik formatına kapalı isek 406 hata kodunun gönderilmesi
+     config.ReturnHttpNotAcceptable = true;
+})
+.AddCustomCsvFormatter()
+.AddXmlDataContractSerializerFormatters() // Xml formatında çıkış yapmamızı onaylan yapıdır.
 .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly)
 .AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

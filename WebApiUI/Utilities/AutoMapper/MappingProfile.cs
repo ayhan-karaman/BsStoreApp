@@ -13,6 +13,7 @@ namespace WebApiUI.Utilities.AutoMapper
         public MappingProfile()
         {
             CreateMap<BookForUpdateDto, Book>();
+            CreateMap<Book, BookDto>();
         }
     }
 }

@@ -1,4 +1,4 @@
 namespace Entities.DataTransferObjects
 {
-    public record BookForUpdateDto(int Id, string Title, decimal Price){}
+    public record BookForUpdateDto(int Id, string Title, decimal Price);
 }

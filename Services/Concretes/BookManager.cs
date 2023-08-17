@@ -41,9 +41,10 @@ namespace Services.Concretes
             _repositoryManager.Save();
         }
 
-        public IEnumerable<Book> GetAllBooks(bool tracking)
+        public IEnumerable<BookDto> GetAllBooks(bool tracking)
         {
-            return _repositoryManager.Book.GetAllBooks(tracking);
+            var books =  _repositoryManager.Book.GetAllBooks(tracking);
+            return _mapper.Map<IEnumerable<BookDto>>(books);
         }
 
         public Book GetOneBookById(int id, bool tracking)
