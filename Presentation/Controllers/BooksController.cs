@@ -37,12 +37,15 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneBook([FromBody] Book book)
+        public IActionResult CreateOneBook([FromBody] BookForInsertionDto bookForInsertion)
         {
-                if(book is null)
+                if(bookForInsertion is null)
                     return BadRequest();
-                _serviceManager.BookService.CreateOneBook(book);
-                return StatusCode(201, book);
+                if(!ModelState.IsValid)
+                    return UnprocessableEntity(ModelState);
+
+                _serviceManager.BookService.CreateOneBook(bookForInsertion);
+                return StatusCode(201, bookForInsertion);
         }
 
         [HttpPut("{id:int}")]
@@ -51,7 +54,9 @@ namespace Presentation.Controllers
             //check book? 
                 if(bookForUpdateDto is null)
                     return BadRequest();
-                _serviceManager.BookService.UpdateOneBook(id, bookForUpdateDto, true);
+                if(!ModelState.IsValid)
+                    return UnprocessableEntity(ModelState);
+                _serviceManager.BookService.UpdateOneBook(id, bookForUpdateDto, false);
                 return NoContent();
             
             
@@ -65,17 +70,23 @@ namespace Presentation.Controllers
         }
 
         [HttpPatch("{id:int}")]
-        public IActionResult PartiallyUpdateOneBook([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<Book> bookPatch)
+        public IActionResult PartiallyUpdateOneBook([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<BookForUpdateDto> bookPatch)
         {
-            // check entity
-                var entity = _serviceManager.BookService.GetOneBookById(id, true);
-                if(entity is null)
-                   throw new BookNotFoundException(id); // 404
+            if(bookPatch is null)
+                return BadRequest(); // 400
+            
+            var result = _serviceManager.BookService.GetOneBookForPatch(id, false);
 
-                bookPatch.ApplyTo(entity);
-                _serviceManager.BookService.UpdateOneBook(id, new(entity.Id,entity.Title, entity.Price), true);
-               
-                return NoContent(); // 204 No Content
+            bookPatch.ApplyTo(result.bookForUpdate, ModelState);
+
+            TryValidateModel(result.bookForUpdate);
+
+            if(!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            _serviceManager.BookService.SaveChangesForPatch(result.bookForUpdate, result.book);
+            
+            return NoContent(); // 204 No Content
         }
     }
 

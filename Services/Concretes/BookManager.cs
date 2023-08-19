@@ -24,11 +24,13 @@ namespace Services.Concretes
             _mapper = mapper;
         }
 
-        public Book CreateOneBook(Book book)
+        public BookDto CreateOneBook(BookForInsertionDto bookForInsertion)
         {
-            _repositoryManager.Book.CreateOneBook(book);
+            var entity = _mapper.Map<Book>(bookForInsertion);
+            _repositoryManager.Book.CreateOneBook(entity);
             _repositoryManager.Save();
-            return book;
+
+            return _mapper.Map<BookDto>(entity);
         }
 
         public void DeleteOneBook(int id, bool tracking)
@@ -47,12 +49,28 @@ namespace Services.Concretes
             return _mapper.Map<IEnumerable<BookDto>>(books);
         }
 
-        public Book GetOneBookById(int id, bool tracking)
+        public BookDto GetOneBookById(int id, bool tracking)
         {
              var book =  _repositoryManager.Book.GetOneBook(id, tracking);
              if(book is null)
                 throw new BookNotFoundException(id);
-             return book;
+             var bookDto = _mapper.Map<BookDto>(book);
+             return bookDto;
+        }
+
+        public (BookForUpdateDto bookForUpdate, Book book) GetOneBookForPatch(int id, bool tracking)
+        {
+            var book = _repositoryManager.Book.GetOneBook(id, tracking);
+            if(book is null)
+                throw new BookNotFoundException(id);
+            var bookDto = _mapper.Map<BookForUpdateDto>(book);
+            return (bookDto, book);
+        }
+
+        public void SaveChangesForPatch(BookForUpdateDto bookForUpdateDto, Book book)
+        {
+            _mapper.Map(bookForUpdateDto, book);
+            _repositoryManager.Save();
         }
 
         public void UpdateOneBook(int id, BookForUpdateDto bookForUpdateDto, bool tracking)
@@ -64,7 +82,7 @@ namespace Services.Concretes
             // Mapping
             entity = _mapper.Map<Book>(bookForUpdateDto);
 
-            _repositoryManager.Book.Update(entity);
+             _repositoryManager.Book.Update(entity);
             _repositoryManager.Save();
         }
     }
