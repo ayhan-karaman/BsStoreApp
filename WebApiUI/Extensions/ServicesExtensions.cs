@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Presentation.ActionFilters;
 using Repositories.Contracts;
 using Repositories.EfCore;
 using Services.Concretes;
@@ -19,6 +20,12 @@ namespace WebApiUI.Extensions
        public static void ConfigureServiceManager(this IServiceCollection services)
        {
             services.AddScoped<IServiceManager, ServiceManager>();
+       }
+
+       public static void ConfigureActionFilters(this IServiceCollection services)
+       {
+                services.AddScoped<ValidationFilterAttribute>();
+                services.AddSingleton<LogFilterAttritbute>();
        }
 
        public static void ConfigureLoggerService(this IServiceCollection services) => 

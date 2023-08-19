@@ -8,11 +8,13 @@ using Services.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Entities.Exceptions;
 using Entities.DataTransferObjects;
+using Presentation.ActionFilters;
 
 namespace Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [ServiceFilter(typeof(LogFilterAttritbute))]
     public class BooksController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
@@ -36,30 +38,22 @@ namespace Presentation.Controllers
                  return Ok(book);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneBookAsync([FromBody] BookForInsertionDto bookForInsertion)
         {
-                if(bookForInsertion is null)
-                    return BadRequest();
-                if(!ModelState.IsValid)
-                    return UnprocessableEntity(ModelState);
-
                 await _serviceManager.BookService.CreateOneBookAsync(bookForInsertion);
                 return StatusCode(201, bookForInsertion);
         }
 
+        
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneBookAsync([FromRoute(Name = "id")] int id, [FromBody] BookForUpdateDto bookForUpdateDto)
         {
             //check book? 
-                if(bookForUpdateDto is null)
-                    return BadRequest();
-                if(!ModelState.IsValid)
-                    return UnprocessableEntity(ModelState);
                 await _serviceManager.BookService.UpdateOneBookAsync(id, bookForUpdateDto, false);
-                return NoContent();
-            
-            
+                return NoContent(); 
         }
 
         [HttpDelete("{id:int}")]
