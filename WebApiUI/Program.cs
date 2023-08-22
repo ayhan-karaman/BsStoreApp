@@ -34,9 +34,11 @@ builder.Services.ConfigureSQLContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureDataShaper();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureCors();
+
 
 
 var app = builder.Build();

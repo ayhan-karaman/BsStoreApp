@@ -1,3 +1,5 @@
+using Entities.DataTransferObjects;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Presentation.ActionFilters;
 using Repositories.Contracts;
@@ -41,5 +43,10 @@ namespace WebApiUI.Extensions
        }
        public static void ConfigureLoggerService(this IServiceCollection services) => 
         services.AddSingleton<ILoggerService, LoggerManager>();
+
+
+        public static void ConfigureDataShaper(this IServiceCollection services) => 
+         services.AddScoped<IDataShaper<BookDto>, DataShaper<BookDto>>();
+
     }
 }
