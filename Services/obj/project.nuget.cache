@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m7BZjLC2ZrFw4m/pazwvKn9Lt2NUPq8KSxNLLvPKNFRnqJ6rADjEUGsCMJ+F048ZEEcCKTS5xxXmR4DCd9fCKg==",
+  "dgSpecHash": "52F3OaRm1RjRs8P4r9GAt+JgaknFCPb2G2KIZT3CU41aHTfv0zHWkCYJdu2r6w+3VwBTECzQJ9JJpSzebSK9bw==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Services/Services.csproj",
   "expectedPackageFiles": [
@@ -20,7 +20,8 @@
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/nlog/5.2.3/nlog.5.2.3.nupkg.sha512",
-    "/Users/ayhankaraman/.nuget/packages/nlog.extensions.logging/5.3.3/nlog.extensions.logging.5.3.3.nupkg.sha512"
+    "/Users/ayhankaraman/.nuget/packages/nlog.extensions.logging/5.3.3/nlog.extensions.logging.5.3.3.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/system.linq.dynamic.core/1.3.4/system.linq.dynamic.core.1.3.4.nupkg.sha512"
   ],
   "logs": []
 }

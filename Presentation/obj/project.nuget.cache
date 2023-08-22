@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sky560Qkpv3D2hgmBjTXN5HX2JY5yztliH7IR4oLGXB8GSYh4bJ7iHZ0tYEubqzrobb2GwWcFL5nZQX7nqcc1w==",
+  "dgSpecHash": "eLMxzYxXn4AxgcXX0aRqGypBy7nb3p623Oh7QRJvtEo2+aC5n7tbjlmgkdz4Y25uoBhz5MCkOS5STs9TRMw68g==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/Presentation/Presentation.csproj",
   "expectedPackageFiles": [
@@ -61,6 +61,7 @@
     "/Users/ayhankaraman/.nuget/packages/system.io.filesystem/4.0.1/system.io.filesystem.4.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/system.io.filesystem.primitives/4.0.1/system.io.filesystem.primitives.4.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/system.linq/4.1.0/system.linq.4.1.0.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/system.linq.dynamic.core/1.3.4/system.linq.dynamic.core.1.3.4.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/system.linq.expressions/4.1.0/system.linq.expressions.4.1.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/system.objectmodel/4.0.12/system.objectmodel.4.0.12.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/system.reflection/4.1.0/system.reflection.4.1.0.nupkg.sha512",

@@ -6,6 +6,7 @@ using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
+using Repositories.Extensions;
 
 namespace Repositories.EfCore
 {
@@ -23,7 +24,8 @@ namespace Repositories.EfCore
         {
             var books =  await FindAll(tracking)
             .FilterBooks(bookParameters.MinPrice, bookParameters.MaxPrice)
-            .OrderBy(x => x.Id)
+            .Search(bookParameters.SearchTerm)
+            .Sort(bookParameters.OrderBy)
             .ToListAsync();
             return PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
         }
