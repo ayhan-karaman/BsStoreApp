@@ -3,6 +3,7 @@ using WebApiUI.Extensions;
 using Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
+using Services.Concretes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,10 +17,10 @@ builder.Services.AddControllers(config => {
      // Client'in bizden istemiş olduğu içerik formatına kapalı isek 406 hata kodunun gönderilmesi
      config.ReturnHttpNotAcceptable = true;
 })
-.AddCustomCsvFormatter()
 .AddXmlDataContractSerializerFormatters() // Xml formatında çıkış yapmamızı onaylan yapıdır.
+.AddCustomCsvFormatter()
 .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly)
-.AddNewtonsoftJson();
+;//.AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.Configure<ApiBehaviorOptions>(options => {
       options.SuppressModelStateInvalidFilter = true;
@@ -38,6 +39,8 @@ builder.Services.ConfigureDataShaper();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureCors();
+builder.Services.AddCustomMediaTypes();
+builder.Services.AddScoped<IBookLinks, BookLinks>();
 
 
 
