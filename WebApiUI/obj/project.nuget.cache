@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k+sjBOZSZCnKjjvJ3z8bjSldARrPjzRf7rDfoEamhKmekGLtV164qna4ojANIdPEtEzoOowi7T5r0OvWqcJZtA==",
+  "dgSpecHash": "WjF/K1/20Mo5HoWpjeB6FxLukzf56hPnvWHvQ71LNos2BzteddHaCZuFE/EodkBbmV3q6UlnCnSCXg9eXNuaKw==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/WebApiUI.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.mvc.abstractions/2.2.0/microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.mvc.core/2.2.5/microsoft.aspnetcore.mvc.core.2.2.5.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/7.0.0/microsoft.aspnetcore.mvc.newtonsoftjson.7.0.0.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.0.0/microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.openapi/7.0.8/microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.responsecaching.abstractions/2.2.0/microsoft.aspnetcore.responsecaching.abstractions.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.routing/2.2.0/microsoft.aspnetcore.routing.2.2.0.nupkg.sha512",

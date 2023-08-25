@@ -59,3 +59,4 @@
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/AutoMapper.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/System.Linq.Dynamic.Core.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.Versioning.dll

@@ -41,6 +41,7 @@ builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureCors();
 builder.Services.AddCustomMediaTypes();
 builder.Services.AddScoped<IBookLinks, BookLinks>();
+builder.Services.ConfigureVersioning();
 
 
 

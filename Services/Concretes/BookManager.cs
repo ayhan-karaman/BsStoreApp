@@ -59,6 +59,12 @@ namespace Services.Concretes
             return (linkResponse:links, metaData: booksWithMetaData.MetaData);
         }
 
+        public async Task<List<Book>> GetAllBooksAsync(bool tracking)
+        {
+           var books = await  _repositoryManager.Book.GetAllBooksAsync(tracking);
+           return books;
+        }
+
         public async Task<BookDto> GetOneBookByIdAsync(int id, bool tracking)
         {
              var entity = await GetOneBookAndCheckExists(id, tracking);

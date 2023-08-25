@@ -29,8 +29,11 @@ namespace Repositories.EfCore
             .ToListAsync();
             return PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
         }
-       
 
+        public async Task<List<Book>> GetAllBooksAsync(bool tracking) 
+        => await FindAll(tracking).OrderBy(b => b.Id).ToListAsync();
+          
+        
         public async Task<Book> GetOneBookAsync(int id, bool tracking) => await FindByCondition(b => b.Id.Equals(id), tracking).SingleOrDefaultAsync();
 
         public void UpdateOneBook(Book book)

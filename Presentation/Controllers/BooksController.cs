@@ -14,8 +14,9 @@ using System.Text.Json;
 
 namespace Presentation.Controllers
 {
+    // [ApiVersion("1.0")]
     [ApiController]
-    [Route("api/[controller]")]
+     [Route("api/books")]
     [ServiceFilter(typeof(LogFilterAttritbute))]
     public class BooksController : ControllerBase
     {
@@ -26,6 +27,7 @@ namespace Presentation.Controllers
             _serviceManager = serviceManager;
         }
 
+        [HttpHead]
         [HttpGet]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllBooksAsync([FromQuery] BookParameters bookParameters)
