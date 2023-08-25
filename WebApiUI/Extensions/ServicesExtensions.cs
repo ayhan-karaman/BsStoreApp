@@ -61,6 +61,8 @@ namespace WebApiUI.Extensions
                     {
                           systemTextJsonOutputFormatter.SupportedMediaTypes
                           .Add("application/vnd.krmn.hateoas+json");
+                          systemTextJsonOutputFormatter.SupportedMediaTypes
+                          .Add("application/vnd.krmn.apiroot+json");
                     }
                
                     var xmlOutputFormatter = config
@@ -71,6 +73,8 @@ namespace WebApiUI.Extensions
                           xmlOutputFormatter
                           .SupportedMediaTypes
                           .Add("application/vnd.krmn.hateoas+xml");
+                          xmlOutputFormatter.SupportedMediaTypes
+                          .Add("application/vnd.krmn.apiroot+xml");
                     }
                });
          }

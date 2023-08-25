@@ -48,7 +48,7 @@ namespace Presentation.Controllers
         }
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost]
+        [HttpPost(Name = "CreateOneBookAsync")]
         public async Task<IActionResult> CreateOneBookAsync([FromBody] BookForInsertionDto bookForInsertion)
         {
                 await _serviceManager.BookService.CreateOneBookAsync(bookForInsertion);
@@ -91,6 +91,16 @@ namespace Presentation.Controllers
             
             return NoContent(); // 204 No Content
         }
+    
+        [HttpOptions]
+        public IActionResult GetBooksOptions()
+        {
+            Response.Headers.Add("Allow", "GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS");
+            return Ok();
+        }
+    
+      
+        
     }
 
 }

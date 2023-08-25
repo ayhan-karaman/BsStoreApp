@@ -274,3 +274,15 @@
 2023-08-24 15:50:11.9723 Info Configuration initialized.
 2023-08-24 16:32:38.1442 Info AppDomain Shutting down. LogFactory closing...
 2023-08-24 16:32:38.1571 Info LogFactory has been closed.
+2023-08-25 16:28:54.3050 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-25 16:28:54.3528 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-25 16:28:54.3893 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/nlog.config
+2023-08-25 16:28:54.4103 Info Configuration initialized.
+2023-08-25 16:38:34.1105 Info AppDomain Shutting down. LogFactory closing...
+2023-08-25 16:38:34.1196 Info LogFactory has been closed.
+2023-08-25 16:38:46.0452 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-25 16:38:46.0875 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-25 16:38:46.1193 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/nlog.config
+2023-08-25 16:38:46.1380 Info Configuration initialized.
+2023-08-25 16:39:25.6208 Info AppDomain Shutting down. LogFactory closing...
+2023-08-25 16:39:25.6287 Info LogFactory has been closed.
