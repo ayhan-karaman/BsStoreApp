@@ -11,6 +11,7 @@ using Entities.DataTransferObjects;
 using Presentation.ActionFilters;
 using Entities.RequestFeatures;
 using System.Text.Json;
+using Marvin.Cache.Headers;
 
 namespace Presentation.Controllers
 {
@@ -18,6 +19,8 @@ namespace Presentation.Controllers
     [ApiController]
      [Route("api/books")]
     [ServiceFilter(typeof(LogFilterAttritbute))]
+    // [ResponseCache(CacheProfileName = "5mins")]
+    // [HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 80)]
     public class BooksController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
@@ -30,6 +33,7 @@ namespace Presentation.Controllers
         [HttpHead]
         [HttpGet]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
+        //[ResponseCache(Duration = 60)] // Cache'lenebilir yapıyı kazandırır
         public async Task<IActionResult> GetAllBooksAsync([FromQuery] BookParameters bookParameters)
         {
                 var linkParameters = new LinkParameters()

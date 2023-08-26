@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "WjF/K1/20Mo5HoWpjeB6FxLukzf56hPnvWHvQ71LNos2BzteddHaCZuFE/EodkBbmV3q6UlnCnSCXg9eXNuaKw==",
+  "dgSpecHash": "/mzfArg0flNOY6B8pW8r4i0g3xW16ivnvIscXeukderPXGh/Ms81y+zFLXj4IEa7LE67IVz7jXaByZ/d4LABvQ==",
   "success": true,
   "projectFilePath": "/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/WebApiUI.csproj",
   "expectedPackageFiles": [
     "/Users/ayhankaraman/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/ayhankaraman/.nuget/packages/marvin.cache.headers/6.0.0/marvin.cache.headers.6.0.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authentication.core/2.2.0/microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "/Users/ayhankaraman/.nuget/packages/microsoft.aspnetcore.authorization/2.2.0/microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

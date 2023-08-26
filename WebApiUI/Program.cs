@@ -16,6 +16,7 @@ builder.Services.AddControllers(config => {
      config.RespectBrowserAcceptHeader = true;
      // Client'in bizden istemiş olduğu içerik formatına kapalı isek 406 hata kodunun gönderilmesi
      config.ReturnHttpNotAcceptable = true;
+     config.CacheProfiles.Add("5mins", new CacheProfile(){Duration = 300});
 })
 .AddXmlDataContractSerializerFormatters() // Xml formatında çıkış yapmamızı onaylan yapıdır.
 .AddCustomCsvFormatter()
@@ -42,7 +43,8 @@ builder.Services.ConfigureCors();
 builder.Services.AddCustomMediaTypes();
 builder.Services.AddScoped<IBookLinks, BookLinks>();
 builder.Services.ConfigureVersioning();
-
+builder.Services.ConfigureResponseCaching();
+builder.Services.ConfigureHttpCacheHeaders();
 
 
 var app = builder.Build();
@@ -62,6 +64,11 @@ if(app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 app.UseCors("CorsPolicy");
+
+// Caching Middlewares
+app.UseResponseCaching();
+app.UseHttpCacheHeaders();
+
 app.UseAuthorization();
 
 app.MapControllers();
