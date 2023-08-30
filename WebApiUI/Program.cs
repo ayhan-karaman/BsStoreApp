@@ -4,6 +4,7 @@ using Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Concretes;
+using AspNetCoreRateLimit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,7 +46,11 @@ builder.Services.AddScoped<IBookLinks, BookLinks>();
 builder.Services.ConfigureVersioning();
 builder.Services.ConfigureResponseCaching();
 builder.Services.ConfigureHttpCacheHeaders();
-
+builder.Services.AddMemoryCache();
+builder.Services.ConfigureRateLimitingOptions();
+builder.Services.AddHttpContextAccessor();
+builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJwt(builder.Configuration);
 
 var app = builder.Build();
 var logger = app.Services.GetRequiredService<ILoggerService>();
@@ -63,12 +68,14 @@ if(app.Environment.IsProduction())
 }
 
 app.UseHttpsRedirection();
+app.UseIpRateLimiting();
 app.UseCors("CorsPolicy");
 
 // Caching Middlewares
 app.UseResponseCaching();
 app.UseHttpCacheHeaders();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

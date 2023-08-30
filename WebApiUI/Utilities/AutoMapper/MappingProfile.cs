@@ -15,6 +15,7 @@ namespace WebApiUI.Utilities.AutoMapper
             CreateMap<BookForUpdateDto, Book>().ReverseMap();
             CreateMap<Book, BookDto>();
             CreateMap<BookForInsertionDto, Book>();
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }

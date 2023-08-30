@@ -12,6 +12,7 @@ using Presentation.ActionFilters;
 using Entities.RequestFeatures;
 using System.Text.Json;
 using Marvin.Cache.Headers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Presentation.Controllers
 {
@@ -33,6 +34,7 @@ namespace Presentation.Controllers
         [HttpHead]
         [HttpGet]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
+        [Authorize]
         //[ResponseCache(Duration = 60)] // Cache'lenebilir yapıyı kazandırır
         public async Task<IActionResult> GetAllBooksAsync([FromQuery] BookParameters bookParameters)
         {
@@ -47,6 +49,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize(Roles = "Admin, Editor")]
         public async Task<IActionResult> GetOneBookAsync([FromRoute(Name = "id")] int id)
         {
                  var book = await _serviceManager.BookService.GetOneBookByIdAsync(id, false);
@@ -55,6 +58,7 @@ namespace Presentation.Controllers
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost(Name = "CreateOneBookAsync")]
+        [Authorize(Roles = "Admin, Editor")]
         public async Task<IActionResult> CreateOneBookAsync([FromBody] BookForInsertionDto bookForInsertion)
         {
                 await _serviceManager.BookService.CreateOneBookAsync(bookForInsertion);
@@ -64,6 +68,7 @@ namespace Presentation.Controllers
         
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Admin, Editor")]
         public async Task<IActionResult> UpdateOneBookAsync([FromRoute(Name = "id")] int id, [FromBody] BookForUpdateDto bookForUpdateDto)
         {
             //check book? 
@@ -72,6 +77,7 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteOneBookAsync([FromRoute(Name = "id")] int id)
         {
                 await _serviceManager.BookService.DeleteOneBookAsync(id, false);
@@ -79,6 +85,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPatch("{id:int}")]
+        [Authorize(Roles = "Admin, Editor")]
         public async Task<IActionResult> PartiallyUpdateOneBookAsync([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<BookForUpdateDto> bookPatch)
         {
             if(bookPatch is null)
@@ -99,6 +106,7 @@ namespace Presentation.Controllers
         }
     
         [HttpOptions]
+        [Authorize]
         public IActionResult GetBooksOptions()
         {
             Response.Headers.Add("Allow", "GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS");

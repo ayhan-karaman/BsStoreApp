@@ -61,3 +61,12 @@
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/System.Linq.Dynamic.Core.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.Versioning.dll
 /Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Marvin.Cache.Headers.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/AspNetCoreRateLimit.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/ayhankaraman/Desktop/DotNetCore-Works/BsStoreApp/WebApiUI/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
