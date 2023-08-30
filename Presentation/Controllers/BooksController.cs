@@ -35,6 +35,7 @@ namespace Presentation.Controllers
         [HttpGet]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         [Authorize]
+        [ApiExplorerSettings(GroupName = "v1")]
         //[ResponseCache(Duration = 60)] // Cache'lenebilir yapıyı kazandırır
         public async Task<IActionResult> GetAllBooksAsync([FromQuery] BookParameters bookParameters)
         {

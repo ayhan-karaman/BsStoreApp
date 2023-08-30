@@ -31,7 +31,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options => {
 
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.ConfigureSwagger();
 
 builder.Services.ConfigureSQLContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
@@ -60,7 +60,10 @@ app.ConfigureExceptionHandler(logger);
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(sw => {
+        sw.SwaggerEndpoint("/swagger/v1/swagger.json", "Krmn v1");
+        sw.SwaggerEndpoint("/swagger/v2/swagger.json", "Krmn v2");
+    });
 }
 if(app.Environment.IsProduction())
 {
