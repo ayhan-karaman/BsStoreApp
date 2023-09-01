@@ -30,19 +30,19 @@ namespace WebApiUI.Extensions
        {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
        }
-       public static void ConfigureServiceManager(this IServiceCollection services)
+             public static void ConfigureServiceManager(this IServiceCollection services)
        {
             services.AddScoped<IServiceManager, ServiceManager>();
        }
 
-       public static void ConfigureActionFilters(this IServiceCollection services)
+            public static void ConfigureActionFilters(this IServiceCollection services)
        {
                 services.AddScoped<ValidationFilterAttribute>();
                 services.AddSingleton<LogFilterAttritbute>();
                 services.AddScoped<ValidateMediaTypeAttribute>();
        }
        
-       public static void ConfigureCors(this IServiceCollection services)
+            public static void ConfigureCors(this IServiceCollection services)
        {
            services.AddCors(options => {
                 options.AddPolicy("CorsPolicy", builder => 
@@ -53,14 +53,14 @@ namespace WebApiUI.Extensions
                  );
            });
        }
-       public static void ConfigureLoggerService(this IServiceCollection services) => 
+            public static void ConfigureLoggerService(this IServiceCollection services) => 
         services.AddSingleton<ILoggerService, LoggerManager>();
 
 
-        public static void ConfigureDataShaper(this IServiceCollection services) => 
+            public static void ConfigureDataShaper(this IServiceCollection services) => 
          services.AddScoped<IDataShaper<BookDto>, DataShaper<BookDto>>();
 
-         public static void AddCustomMediaTypes(this IServiceCollection services)
+            public static void AddCustomMediaTypes(this IServiceCollection services)
          {
                services.Configure<MvcOptions>(config => {
                     var systemTextJsonOutputFormatter = config
@@ -88,7 +88,7 @@ namespace WebApiUI.Extensions
                });
          }
 
-         public static void ConfigureVersioning(this IServiceCollection services)
+            public static void ConfigureVersioning(this IServiceCollection services)
          {
               services.AddApiVersioning( options => {
                     options.ReportApiVersions = true;
@@ -100,9 +100,9 @@ namespace WebApiUI.Extensions
               });
          }
          
-         public static void ConfigureResponseCaching(this IServiceCollection services) =>
+            public static void ConfigureResponseCaching(this IServiceCollection services) =>
                services.AddResponseCaching();
-         public static void ConfigureHttpCacheHeaders(this IServiceCollection services) =>
+            public static void ConfigureHttpCacheHeaders(this IServiceCollection services) =>
                services.AddHttpCacheHeaders(expirationOpt => {
                      expirationOpt.MaxAge = 90;
                      expirationOpt.CacheLocation =CacheLocation.Public;
@@ -110,7 +110,7 @@ namespace WebApiUI.Extensions
                 validationOpt => { validationOpt.MustRevalidate = false; }
                );
          
-      public static void ConfigureRateLimitingOptions(this IServiceCollection services)
+            public static void ConfigureRateLimitingOptions(this IServiceCollection services)
       {
              var rateLimitRules = new List<RateLimitRule>()
              {
@@ -130,7 +130,7 @@ namespace WebApiUI.Extensions
               services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
       }
     
-      public static void ConfigureIdentity(this IServiceCollection services)
+            public static void ConfigureIdentity(this IServiceCollection services)
       {
              var builder = services.AddIdentity<User, IdentityRole>(opt => {
                    opt.Password.RequireDigit = false;
@@ -146,7 +146,7 @@ namespace WebApiUI.Extensions
              .AddDefaultTokenProviders();
       }
       
-      public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
+            public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
       {
             var jwtSettings = configuration.GetSection("JwtSettings");
             var secretKey = jwtSettings["secretKey"];
@@ -215,5 +215,18 @@ namespace WebApiUI.Extensions
              });
 
       }
+    
+     public static void RegisterRepository(this IServiceCollection services)
+     {
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+     }
+      public static void RegisterServices(this IServiceCollection services)
+      {
+             services.AddScoped<IBookService, BookManager>();
+             services.AddScoped<ICategoryService, CategoryManager>();
+             services.AddScoped<IAuthenticationService, AuthenticationManager>();
+      }
+      
     }
 }

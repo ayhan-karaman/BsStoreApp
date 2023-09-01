@@ -32,13 +32,15 @@ namespace Repositories.EfCore
 
         public async Task<List<Book>> GetAllBooksAsync(bool tracking) 
         => await FindAll(tracking).OrderBy(b => b.Id).ToListAsync();
-          
-        
+
+        public async Task<IEnumerable<Book>> GetAllBooksWithDetailAsync(bool tracking)
+        {
+            var books = await _context.Books.Include(x => x.Category).OrderBy(x => x.Id).ToListAsync();
+            return books;
+        }
+
         public async Task<Book> GetOneBookAsync(int id, bool tracking) => await FindByCondition(b => b.Id.Equals(id), tracking).SingleOrDefaultAsync();
 
-        public void UpdateOneBook(Book book)
-        {
-            throw new NotImplementedException();
-        }
+        public void UpdateOneBook(Book book) => Update(book);
     }
 }

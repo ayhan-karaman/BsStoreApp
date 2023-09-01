@@ -12,8 +12,8 @@ using Repositories.EfCore;
 namespace WebApiUI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20230828093117_AddRolesToDatabase")]
-    partial class AddRolesToDatabase
+    [Migration("20230901080640_CreateRelationBetweenBookAndCategoryOneToMany")]
+    partial class CreateRelationBetweenBookAndCategoryOneToMany
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace WebApiUI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("integer");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
@@ -42,26 +45,65 @@ namespace WebApiUI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Books");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            CategoryId = 1,
                             Price = 78m,
                             Title = "Karagöz ve Hacivat"
                         },
                         new
                         {
                             Id = 2,
+                            CategoryId = 2,
                             Price = 98m,
                             Title = "Mesnevi"
                         },
                         new
                         {
                             Id = 3,
+                            CategoryId = 1,
                             Price = 65m,
                             Title = "Dede Korkut"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Computer Science"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Network"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryName = "Database Management Systems"
                         });
                 });
 
@@ -113,6 +155,12 @@ namespace WebApiUI.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
@@ -163,19 +211,19 @@ namespace WebApiUI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f6a8c0b3-287a-45e6-98f7-2db4232ce001",
+                            Id = "899b53d7-43e8-4bd1-9761-55658003e3dd",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "aeab140f-140b-4666-87c7-57af7340a927",
+                            Id = "bd4d16ed-f0e8-4ec6-9d5f-38044799f903",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "81e72194-b2bf-45e9-816b-bfb6406b988c",
+                            Id = "0c55e719-f809-483a-b638-ab404d246d03",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -287,6 +335,17 @@ namespace WebApiUI.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Models.Book", b =>
+                {
+                    b.HasOne("Entities.Models.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -336,6 +395,11 @@ namespace WebApiUI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

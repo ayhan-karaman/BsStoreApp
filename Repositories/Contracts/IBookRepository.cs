@@ -15,5 +15,6 @@ namespace Repositories.Contracts
         void DeleteOneBook(Book book);
         void UpdateOneBook(Book book);
         Task<List<Book>> GetAllBooksAsync(bool tracking);
+        Task<IEnumerable<Book>> GetAllBooksWithDetailAsync(bool tracking);
     }
 }

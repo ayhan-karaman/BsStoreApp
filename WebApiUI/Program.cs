@@ -22,7 +22,9 @@ builder.Services.AddControllers(config => {
 .AddXmlDataContractSerializerFormatters() // Xml formatında çıkış yapmamızı onaylan yapıdır.
 .AddCustomCsvFormatter()
 .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly)
-;//.AddNewtonsoftJson();
+.AddNewtonsoftJson(opt => 
+     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.Configure<ApiBehaviorOptions>(options => {
       options.SuppressModelStateInvalidFilter = true;
@@ -51,6 +53,8 @@ builder.Services.ConfigureRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJwt(builder.Configuration);
+builder.Services.RegisterRepository();
+builder.Services.RegisterServices();
 
 var app = builder.Build();
 var logger = app.Services.GetRequiredService<ILoggerService>();
